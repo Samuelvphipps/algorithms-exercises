@@ -10,13 +10,40 @@
   index's. Continue looping through until all values are in ascending order
 */
 
+// function bubbleSort(nums) {
+//   // code goes here
+//   for(let num of nums){for (let i=0; i<nums.length; i++){
+//     if (nums[i]>nums[i+1]){
+//         nums[i] = nums.splice((i+1), 1, nums[i])[0];
+//     }
+//   }}
+//   return nums;
+
+// }
+
+//their answer (optimized), I solved it but with O(n^2) 😦
 function bubbleSort(nums) {
-  // code goes here
-}
+    let swapped = false;
+    do {
+      swapped = false;
+      for (let i = 0; i < nums.length; i++) {
+        // snapshot(nums);
+        if (nums[i] > nums[i + 1]) {
+          const temp = nums[i];
+          nums[i] = nums[i + 1];
+          nums[i + 1] = temp;
+          swapped = true;
+        }
+      }
+    } while (swapped);
+    // snapshot(nums);
+    return nums;
+  }
+
 
 // unit tests
 // do not modify the below code
-test.skip("bubble sort", function () {
+test("bubble sort", function () {
   const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
   const sortedNums = bubbleSort(nums);
   expect(sortedNums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
