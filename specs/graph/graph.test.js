@@ -12,7 +12,7 @@
 
 /*
   getUser  - function - a function that returns a user's object given an ID
-
+/
   example
 
   {
